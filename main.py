@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     rect = Rectangle(low_left, up_right)
 
-    print(f"Rectangle Coordinates:\nBottom Left: ({rect.low_left.x}, {rect.low_left.y})\nTop Right: ({rect.up_right.x}, {rect.up_right.y})")
+    print(f"Rectangle Coordinates:\nBottom Left: ({rect.corner1.x}, {rect.corner1.y})\nTop Right: ({rect.corner2.x}, {rect.corner2.y})")
     print("Guess a coordinate that falls within the rectangle!")
 
     user_x = float(input("X coordinate: "))

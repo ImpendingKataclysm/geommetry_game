@@ -13,8 +13,8 @@ class Point:
         :return: True if the Point falls within the rectangle's coordinates,
         otherwise False
         """
-        if rectangle.low_left.x < self.x < rectangle.up_right.x \
-                and rectangle.low_left.y < self.y < rectangle.up_right.y:
+        if rectangle.corner1.x < self.x < rectangle.corner2.x \
+                and rectangle.corner1.y < self.y < rectangle.corner2.y:
             return True
         else:
             return False
@@ -38,11 +38,11 @@ class Rectangle:
     This class describes a rectangle in terms of its lower-left (min x, min y)
     and upper-right (max x, max y) coordinates.
     """
-    def __init__(self, low_left, up_right):
-        self.low_left = low_left
-        self.up_right = up_right
+    def __init__(self, point1, point2):
+        self.corner1 = point1
+        self.corner2 = point2
 
     def get_area(self):
-        length = self.up_right.x - self.low_left.x
-        height = self.up_right.y - self.low_left.y
+        length = self.corner2.x - self.corner1.x
+        height = self.corner2.y - self.corner1.y
         return length * height
