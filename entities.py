@@ -43,6 +43,10 @@ class Rectangle:
         self.corner2 = point2
 
     def get_area(self):
+        """
+        Calculates the area of the rectangle
+        :return: the area of the rectangle
+        """
         length = self.corner2.x - self.corner1.x
         height = self.corner2.y - self.corner1.y
         return length * height
