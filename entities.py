@@ -41,15 +41,3 @@ class Rectangle:
     def __init__(self, low_left, up_right):
         self.low_left = low_left
         self.up_right = up_right
-
-
-if __name__ == "__main__":
-    point1 = Point(6, 7)
-    point2 = Point(10, 25)
-    point3 = Point(8, 12)
-    my_rect = Rectangle(point1, point2)
-
-    print(f"({point1.x}, {point1.y})")
-    print(point3.falls_in_rectangle(my_rect))
-    print(point1.distance_from_point(point2))
-    print(my_rect.low_left.x, my_rect.low_left.y, my_rect.up_right.x, my_rect.up_right.y)
