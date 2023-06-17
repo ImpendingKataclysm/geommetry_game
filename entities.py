@@ -41,3 +41,8 @@ class Rectangle:
     def __init__(self, low_left, up_right):
         self.low_left = low_left
         self.up_right = up_right
+
+    def get_area(self):
+        length = self.up_right.x - self.low_left.x
+        height = self.up_right.y - self.low_left.y
+        return length * height

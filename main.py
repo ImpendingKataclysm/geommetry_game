@@ -18,9 +18,18 @@ if __name__ == "__main__":
 
     user_x = float(input("X coordinate: "))
     user_y = float(input("Y coordinate: "))
+    user_area = float(input("Guess the area of the rectangle: "))
     user_point = Point(user_x, user_y)
 
     if user_point.falls_in_rectangle(rect):
         print("Your point was inside the rectangle!")
     else:
-        print("Your point was not inside the rectangle")
+        print("Your point was not inside the rectangle.")
+
+    if user_area == rect.get_area():
+        print("Your area was correct!")
+    else:
+        difference = user_area - rect.get_area()
+        if difference < 0:
+            difference = difference * -1
+        print(f"Your area was off by {difference}")
