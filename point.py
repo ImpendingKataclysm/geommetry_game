@@ -23,9 +23,23 @@ class Point:
         else:
             return False
 
+    def distance_from_point(self, point):
+        """
+        Calculates the distance between this Point and another given Point
+        :param point: the Point to which the distance is calculated
+        :return: the total distance between the 2 Points
+        """
+        x_dist = point.x - self.x
+        y_dist = point.y - self.y
+        # Pythogorean Theorem
+        total_dist = (x_dist ** 2 + y_dist ** 2) ** 0.5
+
+        return total_dist
+
 
 if __name__ == "__main__":
     my_point = Point(6, 7)
 
     print(f"({my_point.x}, {my_point.y})")
     print(my_point.falls_in_rectangle((1, 4), (9, 10)))
+    print(my_point.distance_from_point(Point(10, 25)))
