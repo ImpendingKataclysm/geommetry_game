@@ -7,5 +7,9 @@
 In the command line, the player is shown the coordinates for the rectangle's 
 bottom-left and top-right corners, then prompted to guess the x- and y-coordinates 
 of a point within the rectangle. The player is then prompted to guess the area
-of the rectangle. A final output message indicates whether the player guessed
-correctly.
+of the rectangle. 
+
+
+After the player has entered their guesses, a final output message indicates 
+whether the player guessed correctly. The rectangle and the point guessed by the
+player are rendered in a turtle GUI.

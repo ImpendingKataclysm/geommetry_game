@@ -1,6 +1,6 @@
 class Point:
     """
-    This class describes a point on a grid, defined by its x and y coordinates.
+    Describes a point on a grid, defined by its x and y coordinates.
     """
     def __init__(self, x, y):
         self.x = x
@@ -31,6 +31,24 @@ class Point:
         total_dist = (x_dist ** 2 + y_dist ** 2) ** 0.5
 
         return total_dist
+
+
+class GUIPoint(Point):
+    """
+    Extends the Point class to render the Point in a turtle canvas
+    """
+    def draw(self, canvas, size=5, color='red'):
+        """
+        Draws the Point in a given turtle canvas
+        :param canvas: the turtle canvas on which to draw the point
+        :param size: the size of the point
+        :param color: the color of the point
+        :return:
+        """
+        canvas.penup()
+        canvas.goto(self.x, self.y)
+        canvas.pendown()
+        canvas.dot(size, color)
 
 
 class Rectangle:
@@ -79,4 +97,3 @@ class GUIRectangle(Rectangle):
         canvas.forward(horizontal_distance)
         canvas.left(90)
         canvas.forward(vertical_distance)
-

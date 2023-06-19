@@ -1,7 +1,7 @@
 import turtle
 import coordinate_data as cd
 from random import randint
-from entities import GUIRectangle, Point
+from entities import GUIRectangle, Point, GUIPoint
 
 if __name__ == "__main__":
     corner1 = Point(randint(cd.CORNER1_START, cd.CORNER1_END),
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     user_x = float(input("X coordinate: "))
     user_y = float(input("Y coordinate: "))
     user_area = float(input("Guess the area of the rectangle: "))
-    user_point = Point(user_x, user_y)
+    user_point = GUIPoint(user_x, user_y)
 
     if user_point.falls_in_rectangle(gui_rect):
         print("Your point was inside the rectangle!")
@@ -36,5 +36,6 @@ if __name__ == "__main__":
 
     canvas = turtle.Turtle()
     gui_rect.draw(canvas=canvas)
+    user_point.draw(canvas=canvas)
 
     turtle.done()
