@@ -1,20 +1,15 @@
 import turtle
+import coordinate_data as cd
+from random import randint
+from entities import GUIRectangle, Point
 
-# Create canvas instance
-my_turtle = turtle.Turtle()
+if __name__ == "__main__":
+    corner1 = Point(randint(cd.CORNER1_START, cd.CORNER1_END),
+                    randint(cd.CORNER1_START, cd.CORNER1_END))
+    corner2 = Point(randint(cd.CORNER2_START, cd.CORNER2_END),
+                    randint(cd.CORNER2_START, cd.CORNER2_END))
+    gui_rect = GUIRectangle(corner1, corner2)
+    canvas = turtle.Turtle()
+    gui_rect.draw(canvas=canvas)
 
-# Start at certain coordinate
-my_turtle.penup()
-my_turtle.goto(50, 75)
-
-# Draw the line
-my_turtle.pendown()
-my_turtle.forward(100)
-my_turtle.left(90)
-my_turtle.forward(200)
-my_turtle.left(90)
-my_turtle.forward(100)
-my_turtle.left(90)
-my_turtle.forward(200)
-
-turtle.done()
+    turtle.done()

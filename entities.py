@@ -35,8 +35,8 @@ class Point:
 
 class Rectangle:
     """
-    This class describes a rectangle in terms of its lower-left (min x, min y)
-    and upper-right (max x, max y) coordinates.
+    Describes a rectangle in terms of its lower-left (min x, min y) and
+    upper-right (max x, max y) coordinates.
     """
     def __init__(self, point1, point2):
         self.corner1 = point1
@@ -50,3 +50,33 @@ class Rectangle:
         length = self.corner2.x - self.corner1.x
         height = self.corner2.y - self.corner1.y
         return length * height
+
+
+class GUIRectangle(Rectangle):
+    """
+    Extends the Rectangle class to render the rectangle in a graphical user
+    interface
+    """
+    def draw(self, canvas):
+        """
+        Draws the Rectangle on a turtle canvas.
+        :param canvas: Turtle canvas on which to render the rectangles
+        :return:
+        """
+        horizontal_distance = self.corner2.x - self.corner1.x
+        vertical_distance = self.corner2.y - self.corner1.y
+
+        # Start at certain coordinate
+        canvas.penup()
+        canvas.goto(self.corner1.x, self.corner1.y)
+
+        # Move the line
+        canvas.pendown()
+        canvas.forward(horizontal_distance)
+        canvas.left(90)
+        canvas.forward(vertical_distance)
+        canvas.left(90)
+        canvas.forward(horizontal_distance)
+        canvas.left(90)
+        canvas.forward(vertical_distance)
+
