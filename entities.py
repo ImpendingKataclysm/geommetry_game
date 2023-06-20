@@ -2,6 +2,7 @@ class Point:
     """
     Describes a point on a grid, defined by its x and y coordinates.
     """
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -13,11 +14,7 @@ class Point:
         :return: True if the Point falls within the rectangle's coordinates,
         otherwise False
         """
-        if rectangle.corner1.x < self.x < rectangle.corner2.x \
-                and rectangle.corner1.y < self.y < rectangle.corner2.y:
-            return True
-        else:
-            return False
+        return rectangle.min_x < self.x < rectangle.max_x and rectangle.min_y < self.y < rectangle.max_y
 
     def distance_from_point(self, point):
         """
@@ -37,6 +34,7 @@ class GUIPoint(Point):
     """
     Extends the Point class to render the Point in a turtle canvas
     """
+
     def draw(self, canvas, size=5, color='red'):
         """
         Draws the Point in a given turtle canvas
@@ -56,17 +54,30 @@ class Rectangle:
     Describes a rectangle in terms of its lower-left (min x, min y) and
     upper-right (max x, max y) coordinates.
     """
+
     def __init__(self, point1, point2):
         self.corner1 = point1
         self.corner2 = point2
+        self.min_x = point1.x
+        self.min_y = point1.y
+        self.max_x = point2.x
+        self.max_y = point2.y
+
+        if point1.x > point2.x:
+            self.min_x = point2.x
+            self.max_x = point1.x
+
+        if point1.y > point2.y:
+            self.min_y = point2.y
+            self.max_y = point1.y
 
     def get_area(self):
         """
         Calculates the area of the rectangle
         :return: the area of the rectangle
         """
-        length = self.corner2.x - self.corner1.x
-        height = self.corner2.y - self.corner1.y
+        length = self.max_x - self.min_x
+        height = self.max_y - self.min_y
         return length * height
 
 
@@ -75,6 +86,7 @@ class GUIRectangle(Rectangle):
     Extends the Rectangle class to render the rectangle in a graphical user
     interface
     """
+
     def draw(self, canvas):
         """
         Draws the Rectangle on a turtle canvas.
